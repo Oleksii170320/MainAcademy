@@ -1,0 +1,10 @@
+print("Задача №8, Widgets and Gizmos")                      
+print("                           ")                        
+widgets=int(input("Віедіть кількість одиниць віджетів: "))  
+gizmos=int(input("Введіть кільтість одиниць речей: "))      
+'''вага одтинитці позиції'''                                
+w1=widgets*75                                               
+w2=gizmos*112                                               
+'''Загальна вага замовлння'''
+a=(widgets*w1)+(gizmos*w2)                                  
+print("total weight of the order: ",a,"(grams)")            
