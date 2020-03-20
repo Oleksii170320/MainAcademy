@@ -1,0 +1,12 @@
+print("Задача №33, Day Old Bread")                  
+print("                           ")                
+number_bread=int(input("Кількість куплених буханок с
+price=3.49                                          
+price_disc=0.6                                      
+sales=price*number_bread                            
+sales_disc=sales*price_disc                         
+total_sales=round((price*number_bread*sales_disc),2)
+c=round((total_sales%1),2)                          
+print ("Ціна: ", sales)                             
+print ("Знижка: ", sales_disc)                      
+print ("До сплати: ",total_sales)                   
