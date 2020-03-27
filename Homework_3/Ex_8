@@ -1,0 +1,5 @@
+d=500
+for i in range(1,30):
+    i=i+1
+    d=d+d*0.1
+print(i,d//1,'метрів')
