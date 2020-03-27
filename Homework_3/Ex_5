@@ -3,3 +3,7 @@ i=1
 while i<10:
     print(i*Price)
     i=i+1
+
+Price=float(input())
+for i in range(1,11,1):
+     print(i*Price)
