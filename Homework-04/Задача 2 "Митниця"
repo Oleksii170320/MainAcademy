@@ -1,0 +1,17 @@
+list_name=[]
+while True:
+        name=input("Хто перетинає кордон: ")
+        if name == "END":
+            break
+        else:
+            list_name.append(name)
+
+count={}
+for i in list_name:
+    if i in count:
+        count[i]+=1
+    else:
+        count[i]=1
+
+for x, y in count.items():
+    print(str(x)+' - '+ str(y))
