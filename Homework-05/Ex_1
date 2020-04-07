@@ -1,0 +1,10 @@
+try:
+    file_n=input()
+    file = open(file_n, "w")
+    file.close()
+except IndentationError:
+    print("Назва недопустима")
+except PermissionError:
+    print("Назва недопустима")
+except OSError:
+    print("Назва недопустима")
