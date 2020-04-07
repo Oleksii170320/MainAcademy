@@ -1,0 +1,16 @@
+# # Задача №2
+row=int(input())
+symbol=int(input())
+file = open("file.txt","w")
+for i in range(row):
+     file.write(symbol*'*'+'\n')
+file.close()
+""" Для потреб умовного таксту в задачі №3 використано файл створений в задачею №2"""
+# Задача №3
+file = open("file.txt", 'r')
+lin=file.readlines()
+
+file = open("file.txt", 'w')
+file.writelines(lin[1:])
+
+file.close()
