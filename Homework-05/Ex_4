@@ -1,0 +1,7 @@
+# Задача №4
+k=int(input("Введіть число: "))
+file_old = open("file.txt", 'r')
+list_1=[row[k:] for row in file_old.readlines()]
+file=open("file.txt",'w')
+file.write(str(list_1))
+file.close()
