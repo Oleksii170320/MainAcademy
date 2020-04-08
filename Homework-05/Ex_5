@@ -1,0 +1,24 @@
+# Задача №5
+print("Hello)
+SyntaxError:
+a=50
+if b<a:
+print(b)
+IndentationError:
+Name="Kurt"
+print(Nam)
+NameError:
+list_1=[0,2,3,85,5]
+print(list_1[10])
+IndexError:
+h={'1':'r','2':'y'}
+print(h[1])
+KeyError:
+from math import randit
+print("Hi")
+ImportError:
+from random import randint
+print(randint.range(1,10))
+AttributeError:
+print(10/0)
+ZeroDivisionError:
