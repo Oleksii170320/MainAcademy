@@ -1,6 +1,23 @@
 # 1.1 кількість товарних позицій у файлі
+
 with open('file.txt', 'r') as file:
     position = -1  # the first line is the title
     for i in file.readlines():
         position += 1
-print('sum of positions =', position)
+print("Кількість товарних позицій у файлі =", position)
+
+# 1.2 кількість товарних позицій, що в наявності
+
+file = open('file.txt', encoding="UTF-8") # перетворюємо на словнік
+dic = {}
+for i in file:
+    tmp = i.split("|")
+    dic[tmp[0]] = tmp[1:]
+file.close()
+
+
+nalichie = 0
+for key in dic:
+    if dic[key][1] == 'В наличии':
+        nalichie = nalichie+1
+print("Кількість товарних позицій, що в наявності =",nalichie)
