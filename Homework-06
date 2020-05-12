@@ -1,14 +1,17 @@
+import pickle
+import json
+
 # 1.1 кількість товарних позицій у файлі
 
 with open('file.txt', 'r') as file:
     position = -1  # the first line is the title
     for i in file.readlines():
         position += 1
-print("Кількість товарних позицій у файлі =", position)
+print("Кількість товарних позицій у файлі :", position, "позицій")
 # ========================================================
 # 1.2 кількість товарних позицій, що в наявності
 
-file = open('file.txt', encoding="UTF-8") # перетворюємо на словнік
+file = open('file.txt', encoding="UTF-8")  # перетворюємо на словнік
 dic = {}
 for i in file:
     tmp = i.split("|")
@@ -18,19 +21,18 @@ file.close()
 nalichie = 0
 for key in dic:
     if dic[key][1] == 'В наличии':
-        nalichie = nalichie+1
-print("Кількість товарних позицій, що в наявності =",nalichie)
+        nalichie = nalichie + 1
+print("Кількість товарних позицій, що в наявності :", nalichie, "позицій")
 # ========================================================
 
 # 1.3 ціна та назва найдорожчої товарної позиції
 m = 0
-dic[key][0] = 0
 for key in dic:
-    t = dic[key][2].split()
-    dic[key][2] = t
-    if dic[key][2][0] != "Цена" and int(dic[key][2][0]) > m:
-        m = int(dic[key][2][0])
-        dic[key] = dic[key]
-        if dic[key][2][0] == m:
-
-print("Найдорожчої товар =", m,"грн")
+    for j in key[0]:
+        t = dic[key][2].split()
+        dic[key][2] = t
+        if dic[key][2][0] != "Цена" and int(dic[key][2][0]) > m :
+            m = int(dic[key][2][0])
+            k = dic[key][0]
+            pass
+print("Найдорожчий товар :", k, m, "грн")
