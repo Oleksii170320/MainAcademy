@@ -74,4 +74,4 @@ print(json.loads(open("json.txt").read()))
 dic = file()
 for key in dic:
     if 'яблок' in dic[key][0]:
-        print('Товар с яблоком', '\n', dic[key][0])
+        print('Товар з яблуком', '\n', dic[key][0])
