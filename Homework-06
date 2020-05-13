@@ -9,6 +9,8 @@ with open('file.txt', 'r') as file:
         position += 1
 print("Кількість товарних позицій у файлі :", position, "позицій")
 print("===============================================================")
+
+
 # Функція, яка перетворюємо файл у словник, де ключ це артикул товару:
 def file():
     file = open('file.txt', encoding="UTF-8")  # перетворюємо на словнік
@@ -20,6 +22,8 @@ def file():
         dic[tmp[0]] = tmp[1:]
     file.close()
     return dic
+
+
 # 1.2 кількість товарних позицій, що в наявності
 dic = file()
 nalichie = 0
@@ -34,7 +38,7 @@ dic = file()
 m = 0
 for key in dic:
     dic[key][2] = dic[key][2].split()
-    if dic[key][2][0] != "Цена" and int(dic[key][2][0]) > m :
+    if dic[key][2][0] != "Цена" and int(dic[key][2][0]) > m:
         m = int(dic[key][2][0])
         k = dic[key][0]
         pass
@@ -69,5 +73,5 @@ print(json.loads(open("json.txt").read()))
 # Всі товари, у яких аромат яблука
 dic = file()
 for key in dic:
-    if 'яблок'in dic[key][0]:
+    if 'яблок' in dic[key][0]:
         print('Товар с яблоком', '\n', dic[key][0])
