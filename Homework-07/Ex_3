@@ -1,0 +1,25 @@
+N = int(input("Ведіть число:")) # за допомогою циклу
+
+
+def fuc(N):  
+    fuct = 1
+    for i in range(1, N + 1):
+        fuct *= i
+    print(fuct)
+
+
+fuc(N)
+
+
+----------------**********----------------
+
+N = int(input("Ведіть число:")) # за допомогою рекурсії
+
+
+def fuc(N):   
+    if N == 0:
+        return 1
+    return fuc(abs(N - 1)) * N
+
+
+print(fuc(N))
