@@ -8,24 +8,29 @@ with open('file.txt', 'r') as file:
     for i in file.readlines():
         position += 1
 print("Кількість товарних позицій у файлі :", position, "позицій")
-# ========================================================
+print("===============================================================")
+# Функція, яка перетворюємо файл у словник, де ключ це артикул товару:
+def file():
+    file = open('file.txt', encoding="UTF-8")  # перетворюємо на словнік
+    dic = {}
+    for i in file:
+        tmp = i.split('\n')
+        tmp = tmp[0]
+        tmp = tmp.split("|")
+        dic[tmp[0]] = tmp[1:]
+    file.close()
+    return dic
 # 1.2 кількість товарних позицій, що в наявності
-
-file = open('file.txt', encoding="UTF-8")  # перетворюємо на словнік
-dic = {}
-for i in file:
-    tmp = i.split("|")
-    dic[tmp[0]] = tmp[1:]
-file.close()
-
+dic = file()
 nalichie = 0
 for key in dic:
     if dic[key][1] == 'В наличии':
         nalichie = nalichie + 1
 print("Кількість товарних позицій, що в наявності :", nalichie, "позицій")
-# ========================================================
+print("===============================================================")
 
 # 1.3 ціна та назва найдорожчої товарної позиції
+dic = file()
 m = 0
 for key in dic:
     dic[key][2] = dic[key][2].split()
@@ -33,4 +38,36 @@ for key in dic:
         m = int(dic[key][2][0])
         k = dic[key][0]
         pass
-print("Найдорожчий товар :", k, m, "грн")
+print("Найдорожчий товар :", k, "-", m, "грн")
+print("===============================================================")
+
+# 2.1 Інформація із файлу записана як словник:
+with open('file_new.txt', 'w', encoding="UTF-8") as Slovnik:
+    for key, val in dic.items():
+        Slovnik.write('{}:{}\n'.format(key, val))
+
+# 2.2 Серіалізація за допомогою бібліотеки pickle
+with open('dic_Pickle.txt', 'wb') as Slovnik:
+    pickle.dump(dic, Slovnik)
+with open('dic_Pickle.txt', 'rb') as Spisok:
+    sl1 = pickle.load(Spisok)
+
+# 2.3 Серіалізація за допомогою бібліотеки json
+json.dump(dic, open("dic_Json.txt", "w"))
+sl2 = json.loads(open("dic_Json.txt").read())
+
+# Пошук за артикулем
+a = input('Введіть артикул запчастини: ')
+if a in dic:
+    n = dic.get(a)
+    n = {'part': a, 'name': n[0], 'status': n[1], 'price': n[2]}
+else:
+    print("Товара з таким артикулем немає")
+json.dump(n, open("json.txt", "w"))
+print(json.loads(open("json.txt").read()))
+
+# Всі товари, у яких аромат яблука
+dic = file()
+for key in dic:
+    if 'яблок'in dic[key][0]:
+        print('Товар с яблоком', '\n', dic[key][0])
