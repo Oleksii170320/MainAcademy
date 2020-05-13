@@ -1,0 +1,14 @@
+row = []  # створюємо пустий список
+n = int(input("Введіть кількість чисел списку: "))  # зчитуємо кількість єлементів
+for i in range(n):
+    row.append(int(input("Введіть необхідні числа: ")))  # зчитуємо необхідні єлементи 
+
+
+def new_sort(*args, r=False):
+    if r == False:
+        print(sorted(*args))
+    else:
+        print(sorted(*args, reverse=True))
+
+
+new_sort(row, r=True)
