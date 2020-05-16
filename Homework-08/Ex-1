@@ -1,12 +1,23 @@
-#  Вводимо дані в один рядок
-row = input("Введіть два цілих числа (через пробіл):")
-a, b = row.split(' ')
-a = int(a)
-b = int(b)
+import random
+
+list_with_numbers = list(range(10))
+new_list = []
+for i in list_with_numbers:
+    if not i % 2:
+        new_list.append(i + random.random())
+print(new_list)
+
+# Класичний 'list comprehension'
+print([(i + random.random()) for i in list_with_numbers if not i % 2])
 
 
-def new_power(a, b):  # Функція піднесення до квадрату
-    print("Число " + str(a) + " в степені " + str(b) + " =", a ** b)
+def foo():
+    lis = [i for i in list_with_numbers if not i % 2]
+    return lis
 
 
-new_power(a, b)
+# 'list comprehension' за допомогою функції 'map'
+print(list(map(lambda x: x + random.random(), foo())))
+
+# 'list comprehension' за допомогою функції 'filter'
+print(list(filter(None, new_list)))
