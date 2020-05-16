@@ -1,3 +1,6 @@
+# Завдання 1
+# Зробіть рефакторинг наступної програми (тобто використайте list comprehension і елементи функціонального програмування (map, filter))
+
 import random
 
 list_with_numbers = list(range(10))
