@@ -1,14 +1,21 @@
-row = []  # створюємо пустий список
-n = int(input("Введіть кількість чисел списку: "))  # зчитуємо кількість єлементів
-for i in range(n):
-    row.append(int(input("Введіть необхідні числа: ")))  # зчитуємо необхідні єлементи 
+# Завдання 2
+# Зробіть рефакторинг наступної програми (тобто використайте list comprehension і елементи функціонального програмування (map, filter))
 
+import string
 
-def new_sort(*args, r=False):
-    if r == False:
-        print(sorted(*args))
-    else:
-        print(sorted(*args, reverse=True))
+sentence = "I am @ Python @ senior ^ pomidor"
 
+list_with_words = sentence.split()
+new_list = []
 
-new_sort(row, r=True)
+for word in list_with_words:
+    if not word in string.punctuation:
+        new_list.append(word)
+
+print(new_list)
+
+# Класичний 'list comprehension'
+print([word for word in list_with_words if not word in string.punctuation])
+
+# 'list comprehension' за допомогою функції 'filter'
+print(list(filter(lambda x: not x in string.punctuation, list_with_words)))
