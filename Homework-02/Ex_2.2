@@ -1,0 +1,4 @@
+Pass=str(input("Введіть пароль: "))                                             
+p=Pass                                                                          
+print('Ваш пароль є сильним: ',len(p)>=8 and p.index('@')>=0 or p.index('#')>=0)
+print('Ваш пароль є сильним: ',len(p)>=8 and ('@' in p or '#' in p))       
