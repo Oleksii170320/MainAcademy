@@ -1,5 +1,0 @@
-print("Задача №7, Sum of the First n Positive Integers")
-print("                           ")                    
-n=int(input("Введіть ціле число: "))                    
-sum=n*(n+1)/2                                           
-print("Ваша сума", sum)    
