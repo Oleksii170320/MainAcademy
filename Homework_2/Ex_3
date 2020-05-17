@@ -1,4 +1,0 @@
-print('Задача 3')                                                     
-Char=input("Введіть символ: ")                                        
-print(chr(ord(Char)-1) ,'Символ до'+Char+'в кодовій таблиці ASCII')   
-print(chr(ord(Char)+1) ,'Символ після'+Char+'в кодовій таблиці ASCII')
