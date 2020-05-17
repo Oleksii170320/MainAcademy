@@ -1,0 +1,7 @@
+import math                                                                                                           
+t1=math.radians(float(input('Введіть показання широти 1-ї точки: ')))                                                 
+g1=math.radians(float(input('Введіть показання довготи 1-ї точки: ')))                                                
+t2=math.radians(float(input('Введіть показання широти 2-ї точки: ')))                                                 
+g2=math.radians(float(input('Введіть показання довготи 2-ї точки: ')))                                                
+distance=round((6371.01 * math.acos(math.sin(t1) * math.sin(t2) + math.cos(t1) * math.cos(t2) * math.cos(g1 - g2))),3)
+print("Віжстань між точками Земної поверхні",distance,"кілометрів")     
