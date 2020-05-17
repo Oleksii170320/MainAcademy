@@ -1,4 +1,0 @@
-d=1
-for i in range(-23,13):
-    d=d*i
-print(d)
