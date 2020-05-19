@@ -1,0 +1,25 @@
+# Завдання 6
+# Напишіть декоратор, що модифікує функцію таким чином, що результат її виконання повертається у форматі json
+
+def jsonfile(funk):  # Декоратор для перетворення функцій у форматі json
+    def js():
+        import json
+        json.dump(funk(), open("dic_Json.txt", "w"))
+        sl2 = json.loads(open("dic_Json.txt").read())
+        d1 = json.loads(sl2)
+        print(d1)
+
+    return js
+
+
+@jsonfile
+def file():  # функція та файли взяті з домашньої роботи №6
+    file = open('file.txt', encoding="UTF-8")  # перетворюємо на словнік
+    dic = {}
+    for i in file:
+        tmp = i.split('\n')
+        tmp = tmp[0]
+        tmp = tmp.split("|")
+        dic[tmp[0]] = tmp[1:]
+    file.close()
+    return dic
